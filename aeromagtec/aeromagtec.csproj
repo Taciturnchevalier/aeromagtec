@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B97A4DDA-FA01-4CE9-9CCD-7293C8B560AF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>aeromagtec</RootNamespace>
+    <AssemblyName>aeromagtec</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin, Version=5.14.5506.26196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxMin.5.14.5506.26202\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="CLIFilterClass">
+      <HintPath>ExtLibs\CLIFilterClass.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib, Version=2.1.0.1599, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DirectShowLib.1.0.0\lib\DirectShowLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Data, Version=1.9.0.0, Culture=neutral, PublicKeyToken=c29dbf30e059ca9d, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Data.1.9\lib\net40-Client\DotSpatial.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Mono, Version=1.5.0.0, Culture=neutral, PublicKeyToken=425ba4de41127026, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Mono.1.5.1\lib\net40\DotSpatial.Mono.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Projections, Version=1.9.0.0, Culture=neutral, PublicKeyToken=272632bddd08a38b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Projections.1.9\lib\net40-Client\DotSpatial.Projections.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Serialization, Version=0.11.9.6, Culture=neutral, PublicKeyToken=441f200f827611e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Serialization.1.0.0.0\lib\net40-Client\DotSpatial.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="DotSpatial.Topology, Version=0.11.9.6, Culture=neutral, PublicKeyToken=a66b5e9434ca3671, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Topology.1.0.0.0\lib\net40-Client\DotSpatial.Topology.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=7.1.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.7.1.1\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.6.4448.22541, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.1.6.0\lib\net35\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Gmap.net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.Net.1.0.1\lib\Gmap.net.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinPresentation.2.0.0\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Leomon">
+      <HintPath>ExtLibs\Leomon.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.3\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>ExtLibs\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>ExtLibs\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>ExtLibs\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNET, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a1f5bdcd9c6f5740, processorArchitecture=MSIL">
+      <HintPath>..\packages\ProjNET.2.0.0\lib\netstandard2.0\ProjNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpKml, Version=2.1.0.0, Culture=neutral, PublicKeyToken=9bb853c026a5c0ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpKml.Core.2.1.0\lib\portable-net4+sl5+wp8+win8\SharpKml.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpKml.Kmz, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9bb853c026a5c0ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpKml.Kmz.2.0.2.2\lib\net40\SharpKml.Kmz.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net, Version=1.6.292.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\sqlite-net-pcl.1.6.292\lib\netstandard1.1\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.1.13.388, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.13\lib\net45\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.1.13.388, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.13\lib\net45\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=1.1.13.388, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.13\lib\net45\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=1.1.13.388, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.net45.1.1.13\lib\net45\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Ports.4.4.0\lib\net461\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=4.3.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.4.3.2\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.4.3.2\lib\net46\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BytesStruct.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Comms\CommsSerialScan.cs" />
+    <Compile Include="ConnectionOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectionOptions.Designer.cs">
+      <DependentUpon>ConnectionOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConnectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConnectionControl.Designer.cs">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ConnectionStats.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ConnectionStats.Designer.cs">
+      <DependentUpon>ConnectionStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\myinputbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\myinputbox.Designer.cs">
+      <DependentUpon>myinputbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolStripConnectionControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Waypoints\Spline2.cs" />
+    <Compile Include="CPUtemp.cs" />
+    <Compile Include="CurrentState.cs" />
+    <Compile Include="GCSViews\FlightData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GCSViews\FlightData.Designer.cs">
+      <DependentUpon>FlightData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GCSViews\InitialSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GCSViews\InitialSetup.Designer.cs">
+      <DependentUpon>InitialSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="log\BinaryLog.cs" />
+    <Compile Include="log\CollectionBuffer.cs" />
+    <Compile Include="log\DFLog.cs" />
+    <Compile Include="log\DFLogScript.cs" />
+    <Compile Include="log\LogBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="log\LogBrowse.designer.cs">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="log\LogMap.cs" />
+    <Compile Include="log\LogSort.cs" />
+    <Compile Include="MainV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainV2.Designer.cs">
+      <DependentUpon>MainV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maps\Custom.cs" />
+    <Compile Include="Maps\Earthbuilder.cs" />
+    <Compile Include="Maps\Eniro_Topo.cs" />
+    <Compile Include="Maps\GMapMarkerADSBPlane.cs" />
+    <Compile Include="Maps\GMapMarkerAirport.cs" />
+    <Compile Include="Maps\GMapMarkerAntennaTracker.cs" />
+    <Compile Include="Maps\GMapMarkerBoat.cs" />
+    <Compile Include="Maps\GMapMarkerHeli.cs" />
+    <Compile Include="Maps\GMapMarkerOverlapCount.cs" />
+    <Compile Include="Maps\GMapMarkerPhoto.cs" />
+    <Compile Include="Maps\GMapMarkerPlane.cs" />
+    <Compile Include="Maps\GMapMarkerPOI.cs" />
+    <Compile Include="Maps\GMapMarkerQuad.cs" />
+    <Compile Include="Maps\GMapMarkerRallyPt.cs" />
+    <Compile Include="Maps\GMapMarkerRect.cs" />
+    <Compile Include="Maps\GMapMarkerRover.cs" />
+    <Compile Include="Maps\GMapMarkerSingle.cs" />
+    <Compile Include="Maps\GMapMarkerSub.cs" />
+    <Compile Include="Maps\GMapMarkerWP.cs" />
+    <Compile Include="Maps\Mapbox.cs" />
+    <Compile Include="Maps\MapboxNoFly.cs" />
+    <Compile Include="Maps\MyImageCache.cs" />
+    <Compile Include="Maps\POI.cs" />
+    <Compile Include="Maps\Statkart_Topo2.cs" />
+    <Compile Include="Maps\WMSProvider.cs" />
+    <Compile Include="mav\LinkInterface.cs" />
+    <Compile Include="mav\mav.cs" />
+    <Compile Include="mav\MAVList.cs" />
+    <Compile Include="mav\MAVState.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="refClass.cs" />
+    <Compile Include="Strings.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Strings.designer.cs">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypeDef.cs" />
+    <Compile Include="Utilities\dataExp.cs" />
+    <Compile Include="Utilities\LangUtility.cs" />
+    <Compile Include="Utilities\MyDataTable.cs" />
+    <Compile Include="Utilities\WGS84toUTM.cs" />
+    <EmbeddedResource Include="ConnectionOptions.resx">
+      <DependentUpon>ConnectionOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConnectionOptions.zh-Hans.resx">
+      <DependentUpon>ConnectionOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.ar.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.az-Latn-AZ.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.id-ID.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.ja-JP.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.ko-KR.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.pt.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionControl.zh-Hans.resx">
+      <DependentUpon>ConnectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionStats.resx">
+      <DependentUpon>ConnectionStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ConnectionStats.zh-Hans.resx">
+      <DependentUpon>ConnectionStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\myinputbox.resx">
+      <DependentUpon>myinputbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GCSViews\FlightData.resx">
+      <DependentUpon>FlightData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GCSViews\InitialSetup.resx">
+      <DependentUpon>InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.ar.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.az-Latn-AZ.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.de-DE.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.es-ES.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.fr.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.id-ID.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.it-IT.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.ja-JP.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.ko-KR.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.pl.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.pt.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.zh-Hans.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log\LogBrowse.zh-TW.resx">
+      <DependentUpon>LogBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainV2.resx">
+      <DependentUpon>MainV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainV2.zh-Hans.resx">
+      <DependentUpon>MainV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Strings.az-Latn-AZ.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.de-DE.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.pt.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.zh-Hans.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BytesStruct.datasource" />
+    <None Include="Properties\DataSources\ChInfo.datasource" />
+    <None Include="Properties\DataSources\CurrentState.datasource" />
+    <None Include="Properties\DataSources\CurrentState.Mavlink_Sensors.datasource" />
+    <None Include="Properties\DataSources\MainV2.datasource" />
+    <None Include="Properties\DataSources\MAVLinkInterface.datasource" />
+    <None Include="Properties\DataSources\PersistentSettings.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\refClass.datasource" />
+    <None Include="Properties\DataSources\RMSInfo.datasource" />
+    <None Include="Properties\DataSources\state_box.datasource" />
+    <None Include="Properties\DataSources\state_gps.datasource" />
+    <None Include="Properties\DataSources\Strings.datasource" />
+    <None Include="Properties\DataSources\tm.datasource" />
+    <None Include="Properties\DataSources\TypeDef.datasource" />
+    <None Include="Properties\DataSources\UART_RMS_DATA.datasource" />
+    <None Include="Properties\DataSources\UpdateVisitor.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Welcome_to_Michael_Oborne.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ExtLibs\BSE.Windows.Forms\BSE.Windows.Forms.csproj">
+      <Project>{9ca367b8-0b98-49d1-84fb-735e612e3ba9}</Project>
+      <Name>BSE.Windows.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\Comms\aeromagtec.Comms.csproj">
+      <Project>{f3927a55-7342-4218-a958-5534fe868304}</Project>
+      <Name>aeromagtec.Comms</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\Controls\aeromagtec.Controls.csproj">
+      <Project>{99009a25-6189-4538-98a3-867a9c1cedd9}</Project>
+      <Name>aeromagtec.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\Core\Core.csproj">
+      <Project>{10a96903-8bc9-477e-9eb4-abbbd43f9e77}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\GeoUtility\GeoUtility.csproj">
+      <Project>{f8596586-19cd-4a93-8848-ed886b36e1b9}</Project>
+      <Name>GeoUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\GMap.NET.Core\GMap.NET.Core.csproj">
+      <Project>{d2a57373-1bcd-4998-a47a-a76deb66b0ea}</Project>
+      <Name>GMap.NET.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\GMap.NET.WindowsForms\GMap.NET.WindowsForms.csproj">
+      <Project>{e06def77-f933-42fb-afd7-db2d0d8d6a98}</Project>
+      <Name>GMap.NET.WindowsForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\LibVLC.NET\LibVLC.NET.csproj">
+      <Project>{8d0b092f-c9db-4bb4-ac94-0366c86a898f}</Project>
+      <Name>LibVLC.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\Mavlink\MAVLink.csproj">
+      <Project>{097379f2-6671-46c0-9927-393b34030423}</Project>
+      <Name>MAVLink</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\tlogThumbnailHandler\tlogThumbnailHandler.csproj">
+      <Project>{f788fb73-1d6d-4155-911c-25526f7be1a4}</Project>
+      <Name>tlogThumbnailHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\Utilities\aeromagtec.Utilities.csproj">
+      <Project>{4663b74b-3bfd-4cc0-bbf7-8f6d9489dcb8}</Project>
+      <Name>aeromagtec.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\ZedGraph\ZedGraph.csproj">
+      <Project>{2541686b-1673-43bf-af89-3163945db009}</Project>
+      <Name>ZedGraph</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtLibs\Zeroconf\Zeroconf\Zeroconf.csproj">
+      <Project>{cec34d31-a01e-4285-a69e-914d1b516c1e}</Project>
+      <Name>Zeroconf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\01_01.png" />
+    <Content Include="Resources\01_03.png" />
+    <Content Include="Resources\01_05.png" />
+    <Content Include="Resources\01_06.png" />
+    <Content Include="Resources\0d92fed790a3a70170e61a86db103f399a595c70.png" />
+    <Content Include="Resources\AC-0004-11-2.jpg" />
+    <Content Include="Resources\Antenna Tracker-01.png" />
+    <Content Include="Resources\APM_airframes-07.png" />
+    <Content Include="Resources\APM_airframes-08.png" />
+    <Content Include="Resources\APM_airframes_001.png" />
+    <Content Include="Resources\APM_airframes_002.png" />
+    <Content Include="Resources\APM_rover-firmware.png" />
+    <Content Include="Resources\bg.jpg" />
+    <Content Include="Resources\bgdark.jpg" />
+    <Content Include="Resources\boat.png" />
+    <Content Include="Resources\BR-0004-03-2.jpg" />
+    <Content Include="Resources\BR-0016-01-3T.jpg" />
+    <Content Include="Resources\BR-APMPWRDEAN-2.jpg" />
+    <Content Include="Resources\BR-HMC5883-01-2.jpg" />
+    <Content Include="Resources\BT-hc06.jpg" />
+    <Content Include="Resources\calibration01.jpg" />
+    <Content Include="Resources\camera-icon-G.png" />
+    <Content Include="Resources\camera-icon.png" />
+    <Content Include="Resources\cameraGimalPitch1.png" />
+    <Content Include="Resources\cameraGimalRoll1.png" />
+    <Content Include="Resources\cameraGimalYaw.png" />
+    <Content Include="Resources\car.png" />
+    <Content Include="Resources\configuration.png" />
+    <Content Include="Resources\connect.png" />
+    <Content Include="Resources\dark_connect_icon.png" />
+    <Content Include="Resources\dark_disconnect_icon.png" />
+    <Content Include="Resources\dark_flightdata_icon.png" />
+    <Content Include="Resources\dark_flightplan_icon.png" />
+    <Content Include="Resources\dark_help_icon.png" />
+    <Content Include="Resources\dark_initialsetup_icon.png" />
+    <Content Include="Resources\dark_simulation_icon.png" />
+    <Content Include="Resources\dark_terminal_icon.png" />
+    <Content Include="Resources\dark_tuningconfig_icon.png" />
+    <Content Include="Resources\data.png" />
+    <Content Include="Resources\disconnect.png" />
+    <Content Include="Resources\donate.png" />
+    <Content Include="Resources\down.png" />
+    <Content Include="Resources\firmware.png" />
+    <Content Include="Resources\flightdata.png" />
+    <Content Include="Resources\flightplanner.png" />
+    <Content Include="Resources\frames-01.png" />
+    <Content Include="Resources\frames-02.png" />
+    <Content Include="Resources\frames-03.png" />
+    <Content Include="Resources\frames-04.png" />
+    <Content Include="Resources\frames-05.png" />
+    <Content Include="Resources\frames-06.png" />
+    <Content Include="Resources\frames-07.png" />
+    <Content Include="Resources\frames-08.png" />
+    <Content Include="Resources\frames-h.png" />
+    <Content Include="Resources\frames_plus.png" />
+    <Content Include="Resources\frames_x.png" />
+    <Content Include="Resources\FW icons 2013+logos-01.png" />
+    <Content Include="Resources\FW icons 2013+logos-011.png" />
+    <Content Include="Resources\FW icons 2013+logos-012.png" />
+    <Content Include="Resources\FW icons 2013+logos-02.png" />
+    <Content Include="Resources\FW icons 2013+logos-03.png" />
+    <Content Include="Resources\FW icons 2013+logos-04.png" />
+    <Content Include="Resources\FW icons 2013+logos-05.png" />
+    <Content Include="Resources\FW icons 2013+logos-06.png" />
+    <Content Include="Resources\FW icons 2013+logos-07.png" />
+    <Content Include="Resources\FW icons 2013+logos-08.png" />
+    <Content Include="Resources\FW icons 2013+logos-09.png" />
+    <Content Include="Resources\FW icons 2013+logos-10.png" />
+    <Content Include="Resources\FW icons 2013+logos-11.png" />
+    <Content Include="Resources\FW icons 2013+logos-12.png" />
+    <Content Include="Resources\FW icons 2013+logos-13.png" />
+    <Content Include="Resources\FW icons 2013+logos-14.png" />
+    <Content Include="Resources\FW icons 2013+logos-15.png" />
+    <Content Include="Resources\FW icons 2013+logos-16.png" />
+    <Content Include="Resources\FW icons Y6.png" />
+    <Content Include="Resources\guagebg.jpg" />
+    <Content Include="Resources\hardwareconfig.png" />
+    <Content Include="Resources\hardwareconfig02.png" />
+    <Content Include="Resources\heli.png" />
+    <Content Include="Resources\help.png" />
+    <Content Include="Resources\helpwizard.png" />
+    <Content Include="Resources\Hframe.png" />
+    <Content Include="Resources\Hframelight.png" />
+    <Content Include="Resources\iconWarning32.png" />
+    <Content Include="Resources\iconWarning48.png" />
+    <Content Include="Resources\IRIS_FW_ICON.png" />
+    <Content Include="Resources\light_01.png" />
+    <Content Include="Resources\light_03.png" />
+    <Content Include="Resources\light_05.png" />
+    <Content Include="Resources\light_06.png" />
+    <Content Include="Resources\light_connect_icon.png" />
+    <Content Include="Resources\light_disconnect_icon.png" />
+    <Content Include="Resources\light_flightdata_icon.png" />
+    <Content Include="Resources\light_flightplan_icon.png" />
+    <Content Include="Resources\light_help_icon.png" />
+    <Content Include="Resources\light_initialsetup_icon.png" />
+    <Content Include="Resources\light_simulation_icon.png" />
+    <Content Include="Resources\light_terminal_icon.png" />
+    <Content Include="Resources\light_tuningconfig_icon.png" />
+    <Content Include="Resources\logo_old.png" />
+    <Content Include="Resources\maggps.png" />
+    <Content Include="Resources\marker_01.png" />
+    <Content Include="Resources\marker_02.png" />
+    <Content Include="Resources\marker_03.png" />
+    <Content Include="Resources\marker_04.png" />
+    <Content Include="Resources\marker_05.png" />
+    <Content Include="Resources\marker_06.png" />
+    <Content Include="Resources\marker_07.png" />
+    <Content Include="Resources\MAVCmd.txt" />
+    <Content Include="Resources\MAVCmd.zh-Hans.txt" />
+    <Content Include="Resources\MAVCmd.zh-TW.txt" />
+    <Content Include="Resources\MAVParam.txt" />
+    <Content Include="Resources\MAVParam.zh-Hans.txt" />
+    <Content Include="Resources\MAVParam.zh-TW.txt" />
+    <Content Include="Resources\missionplannerlogo.png" />
+    <Content Include="Resources\missionplannerlogodark.png" />
+    <Content Include="Resources\navbar_bg_sky.jpg" />
+    <Content Include="Resources\new frames-01.png" />
+    <Content Include="Resources\new frames-05.png" />
+    <Content Include="Resources\new frames-05X.png" />
+    <Content Include="Resources\new frames-06.png" />
+    <Content Include="Resources\new frames-09.png" />
+    <Content Include="Resources\new frames-10.png" />
+    <Content Include="Resources\new frames-11.png" />
+    <Content Include="Resources\new frames-12.png" />
+    <Content Include="Resources\new frames-13.png" />
+    <Content Include="Resources\new frames-14.png" />
+    <Content Include="Resources\new-3DR-04.png" />
+    <Content Include="Resources\octox.png" />
+    <Content Include="Resources\Parachute.png" />
+    <Content Include="Resources\plane2.png" />
+    <Content Include="Resources\planebackground.png" />
+    <None Include="Resources\planeicon.png" />
+    <Content Include="Resources\planetracker.png" />
+    <Content Include="Resources\planner.png" />
+    <Content Include="Resources\PlusFramesGreen_02.png" />
+    <Content Include="Resources\PlusFramesGreen_04.png" />
+    <Content Include="Resources\PlusFramesGreen_06.png" />
+    <Content Include="Resources\PlusFrames_02.png" />
+    <Content Include="Resources\PlusFrames_04.png" />
+    <Content Include="Resources\PlusFrames_06.png" />
+    <Content Include="Resources\quad2.png" />
+    <Content Include="Resources\quadframeslight_01.jpg" />
+    <Content Include="Resources\quadframeslight_03.jpg" />
+    <Content Include="Resources\quadframeslight_05.jpg" />
+    <Content Include="Resources\quadframeslight_07.jpg" />
+    <Content Include="Resources\quadframeslight_13.jpg" />
+    <Content Include="Resources\quadframeslight_15.jpg" />
+    <Content Include="Resources\quadframeslight_16.png" />
+    <Content Include="Resources\quadframesnormal_01.png" />
+    <Content Include="Resources\quadframesnormal_03.png" />
+    <Content Include="Resources\quadframesnormal_05.png" />
+    <Content Include="Resources\quadframesnormal_06.png" />
+    <Content Include="Resources\quadframesnormal_11.png" />
+    <Content Include="Resources\quadframesnormal_12.png" />
+    <Content Include="Resources\quadframesnormal_14.png" />
+    <Content Include="Resources\quadframes_01.jpg" />
+    <Content Include="Resources\quadframes_03.jpg" />
+    <Content Include="Resources\quadframes_05.jpg" />
+    <Content Include="Resources\quadframes_07.jpg" />
+    <Content Include="Resources\quadframes_13.jpg" />
+    <Content Include="Resources\quadframes_15.jpg" />
+    <Content Include="Resources\quadframes_16.png" />
+    <Content Include="Resources\quadhover_01.png" />
+    <Content Include="Resources\quadhover_03.png" />
+    <Content Include="Resources\quadhover_05.png" />
+    <Content Include="Resources\quadhover_06.png" />
+    <Content Include="Resources\quadhover_11.png" />
+    <Content Include="Resources\quadhover_12.png" />
+    <Content Include="Resources\quadhover_14.png" />
+    <None Include="Resources\quadicon.png" />
+    <Content Include="Resources\redsinglecopter2.png" />
+    <Content Include="Resources\rover-10.png" />
+    <Content Include="Resources\rover-11.png" />
+    <Content Include="Resources\rover.png" />
+    <Content Include="Resources\selectvehicle.png" />
+    <Content Include="Resources\Shutter.png" />
+    <Content Include="Resources\simulation.png" />
+    <Content Include="Resources\softwareconfig.png" />
+    <Content Include="Resources\splash.jpg" />
+    <Content Include="Resources\splashdark.jpg" />
+    <Content Include="Resources\splashdark_1.jpg" />
+    <Content Include="Resources\splashdark_old.jpg" />
+    <Content Include="Resources\sub.png" />
+    <Content Include="Resources\terminal.png" />
+    <Content Include="Resources\up.png" />
+    <Content Include="Resources\wizardicon.png" />
+    <Content Include="Resources\wizardicon1.png" />
+    <Content Include="Resources\x8.png" />
+    <Content Include="Resources\y6.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.13\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
